@@ -1,3 +1,4 @@
+using Workshop_1.Middlewares;
 using Workshop_1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ app.UseRouting();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<CacheControlMiddleware>();
 
 app.MapControllers();
 app.MapHub<ChatHub>("chatHub");
